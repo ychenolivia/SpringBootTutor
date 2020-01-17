@@ -13,6 +13,16 @@ public class TwoSum {
     IndexRepository indexRepository;
 
     public int[] getIndex(String target) {
-        return indexRepository.FindIndex(target);
+        int[] nums = indexRepository.getNums();
+
+        int target_ = Integer.parseInt(target);
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[j] == target_ - nums[i]) {
+                    return new int[] { i, j };
+                }
+            }
+        }
+        return new int[] {};
     }
 }
